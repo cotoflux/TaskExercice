@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use App\Task;
 
 class ExampleTest extends TestCase
 {
@@ -12,10 +13,22 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
+    use RefreshDatabase;
+    public function testTheCreateHasSuccess()
     {
-        $response = $this->get('/');
+        $task=factory(Task::class)->create();
+        
+        $response = $this->get('/api/task');
+    
+        $response->assertStatus(200);
+    }
 
+    public function testTheGetHasSuccess()
+    {
+        $task=factory(Task::class)->update();
+        
+        $response = $this->post('/api/task');
+    
         $response->assertStatus(200);
     }
 }

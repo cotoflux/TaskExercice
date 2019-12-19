@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\SeguimientoTarea;
+use App\Task;
 use Illuminate\Http\Request;
 
-class SeguimientoTareaController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,9 @@ class SeguimientoTareaController extends Controller
      */
     public function index()
     {
-        //
+        $task = Task::all();
+        return $task;
+
     }
 
     /**
