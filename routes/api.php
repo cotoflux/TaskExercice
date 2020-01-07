@@ -18,10 +18,10 @@ use Illuminate\Http\Request;
 }); 
 
 
-Route::get('/task', 'Api\TaskController@index')->name('task');
-Route::get('/task/{task}', 'Api\TaskController@show')->name('task.show');
-Route::post('/task', 'Api\TaskController@store')->name('task.store');
-Route::put('/task/{task}', 'Api\TaskController@update')->name('task.update');
-Route::delete('/task/{task}', 'Api\TaskController@destroy')->name('task.delete');
+Route::get('/task', 'Api\TaskController@index')->name('task')->middleware('auth');
+Route::get('/task/{task}', 'Api\TaskController@show')->name('task.show')->middleware('auth');
+Route::post('/task', 'Api\TaskController@store')->name('task.store')->middleware('auth');
+Route::put('/task/{task}', 'Api\TaskController@update')->name('task.update')->middleware('auth');
+Route::delete('/task/{task}', 'Api\TaskController@destroy')->name('task.delete')->middleware('auth');
 
 

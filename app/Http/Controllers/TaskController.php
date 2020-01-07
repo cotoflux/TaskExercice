@@ -26,7 +26,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('task.create');
+        return view('create');
     }
 
     /**
@@ -37,18 +37,20 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task=Task::create($request->all());
+        $event_id=$task->id;
+        return redirect("show/$task->id");
     }
-
     /**
      * Display the specified resource.
      *
      * @param  \App\SeguimientoTarea  $seguimientoTarea
      * @return \Illuminate\Http\Response
      */
-    public function show(SeguimientoTarea $seguimientoTarea)
+    public function show(Task $task)
     {
-        //
+        
+        return view('show',['task'=>$task]);
     }
 
     /**
