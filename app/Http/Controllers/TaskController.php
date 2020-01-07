@@ -15,7 +15,7 @@ class TaskController extends Controller
     public function index()
     {
         $task = Task::all();
-        return $task;
+        return view ('home', ['task'=>$task]);
 
     }
 
