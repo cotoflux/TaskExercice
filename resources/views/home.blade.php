@@ -9,27 +9,21 @@
 
                 <div class="card-body">
                     <div class="container-fluid">
-                <table>
-                    <tr>
-                        <th>Id </th>
-                        <th>Nombre</th>
-                        <th>Descripción tarea</th>
-                        <th>Fecha máxima</th>
-                    </tr>
+ 
 
                     @foreach($task as $tasks)
 
-                        <tr>
-                            <td>{{ $tasks->id}}</td>
-                         
-                            <td>{{ $tasks->name}}</td>
-                            <td>{{ $tasks->description}}</td>
-                            <td>{{ $tasks->due_date}}</td>
-                        </tr>
-
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="logo\Tareas.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $tasks->id}} | {{ $tasks->name}} </h5>
+                            <p class="card-text">{{ $tasks->description}}</p>
+                            <a  class="btn btn-primary">{{ $tasks->due_date}}</a>
+                        </div>
+                    </div>
     
                     @endforeach
-                </table>
+           
                     </div>          
                 </div>
             </div>
