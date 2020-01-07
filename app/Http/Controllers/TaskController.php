@@ -48,8 +48,7 @@ class TaskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Task $task)
-    {
-        
+    {    
         return view('show',['task'=>$task]);
     }
 
@@ -59,9 +58,9 @@ class TaskController extends Controller
      * @param  \App\SeguimientoTarea  $seguimientoTarea
      * @return \Illuminate\Http\Response
      */
-    public function edit(SeguimientoTarea $seguimientoTarea)
+    public function edit(Task $task)
     {
-        //
+        return view('edit',['task'=>$task]);
     }
 
     /**
@@ -71,9 +70,10 @@ class TaskController extends Controller
      * @param  \App\SeguimientoTarea  $seguimientoTarea
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SeguimientoTarea $seguimientoTarea)
+    public function update(Request $request, Task $task)
     {
-        //
+        $task->update($request->all());
+        return redirect("show/$task->id");
     }
 
     /**
@@ -82,8 +82,9 @@ class TaskController extends Controller
      * @param  \App\SeguimientoTarea  $seguimientoTarea
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SeguimientoTarea $seguimientoTarea)
+    public function destroy(Task $task)
     {
-        //
+        $task->delete();
+        return redirect('home');
     }
 }

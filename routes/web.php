@@ -21,3 +21,6 @@ Route::get('/home', 'TaskController@index')->name('home')->middleware('auth');
 Route::get('/create', 'TaskController@create')->name('home.create')->middleware('auth');
 Route::post('/create', 'TaskController@store')->name('home.store')->middleware('auth');
 Route::get('/show/{task}', 'TaskController@show')->name('home.show')->middleware('auth');
+Route::post('/task/{task}', 'TaskController@update')->name('home.update')->middleware('auth');
+Route::get('/task/{task}/edit', 'TaskController@edit')->name('home.edit')->middleware('auth');
+Route::DELETE('/task/{task}', 'TaskController@destroy')->name('home.destroy')->middleware('auth');

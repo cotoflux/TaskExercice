@@ -11,21 +11,15 @@
                     <div class="container-fluid">
  
 
-                    <div class="card" style="width: 18rem;">
-
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $task->id}} | {{ $task->name}} </h5>
-                            <p class="card-text">{{ $task->description}}</p>
-                            <a  class="btn btn-primary">{{ $task->due_date}}</a>
-                        </div>
-                       
-                    </div>
-                    
                     <form method="POST" action="/task/{{$task->id}}" enctype="multipart/form-data">
                         @csrf
-                        @method("DELETE")
-                       
-                        <input type="submit" value="Borrar" >
+                        @method("POST")
+                        Id: <input required type="text" name="id"><br>
+                        Nombre: <input required  type="text" name="name"><br>
+                        Descripción:<input required type="textarea" name="description"><br>
+                        Fecha límite:<input required  type="date" name="due_date"><br>
+                        
+                        <input type="submit" value="Editar" >
                     </form>
            
                     </div>          
